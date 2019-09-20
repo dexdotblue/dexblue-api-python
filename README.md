@@ -4,13 +4,25 @@ This is the official Python API wrapper for communicating with the dex.blue API.
 
 For further information head to the [API Documentation](https://docs.dex.blue)
 
-## Basic Usage
+## Installation
 
 Install via pip
 
-`pip install dexblue-api`
+```bash
+pip install dexblue-api
+```
 
-Basic example
+## Introduction
+
+dex.blue is a trustless, non-custodial exchange. This means, that every input which moves funds needs to by signed with your private key.
+
+ You either have to sign orders directly from your wallet address or use a [Delegated Signing Key](https://docs.dex.blue/delegation/).
+
+For the most straightforward integration, which does not require you to directly interact with the blockchain, you can just use our [webinterface](https://dex.blue/trading) for deposits & withdrawals and register a [Delegated Signing Key](https://docs.dex.blue/delegation/) in the settings ⚙ section.
+
+If you want to handle deposits and withdrawals from your bot, please check out [this page](https://docs.dex.blue/contract/) of our documentation.
+
+## Basic example
 
 ```python
 import dexblue
@@ -85,8 +97,8 @@ Events:
 
 ```python
 db.methods.subscribe({
-    markets : ["ETHDAI", "MKRETH"],
-    events  : ["trades", "book20d5"]
+    "markets" : ["ETHDAI", "MKRETH"],
+    "events"  : ["trades", "book20d5"]
 })
 
 db.on('events', print)
