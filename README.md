@@ -6,10 +6,10 @@ For further information head to the [API Documentation](https://docs.dex.blue)
 
 ## Installation
 
-Install via [pip](https://pypi.org/project/dexblue-api/)
+Install via [pip](https://pypi.org/project/dexblue-api-python/)
 
 ```bash
-pip install dexblue-api
+pip install dexblue-api-python
 ```
 
 ## Introduction
