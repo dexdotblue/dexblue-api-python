@@ -9,7 +9,7 @@ For further information head to the [API Documentation](https://docs.dex.blue)
 Install via [pip](https://pypi.org/project/dexblue-api/)
 
 ```bash
-pip install dexblue-api
+pip install dexblue-api-python
 ```
 
 ## Introduction
