@@ -49,6 +49,11 @@ db = dexblue.WsAPI(
     network=<ETHEREUM NETWORK>, # default: mainnet
     autoAuth=<AUTHENTICATE WHEN CONNECTION OPENS> # default: True
 )
+
+def callback(packet):
+    # your code here
+
+db.on('wsOpen', callback)
 ```
 
 It is possible to use a encrypted key tho authenticate your connection
