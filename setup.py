@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="dexblue-api",
-    version="0.2.1",
+    version="v0.1.0-beta1",
     author="dex.blue",
     author_email="tech@dex.blue",
     description="dex.blue API wrapper for python",
