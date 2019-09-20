@@ -31,7 +31,7 @@ db = dexblue.WsAPI()
 
 db.methods.getListed()
 
-db.on('message', print)
+db.on('listed', print)
 ```
 
 ## Initializing a connection
