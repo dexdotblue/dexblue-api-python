@@ -35,6 +35,27 @@
     },
     "logoff" : {},
     "getListed" : {},
+    "getBalanceSnapshot" : {},
+    "getFeeTier" : {},
+    "getDelegateSnapshot" : {},
+    "getOrderBookSnapshot": {
+        "market": {
+            "type": "string"
+        },
+        "limit": {
+            "type": "uint",
+            "optional":true
+        },
+        "decimals": {
+            "type": "uint",
+            "optional":true
+        }
+    },
+    "getTicker": {
+        "market": {
+            "type": "string"
+        }
+    },
     "getActiveOrderSnapshot" : {},
     "getHistoricalOrders" : {
         "market":{
@@ -82,8 +103,7 @@
     },
     "getHistoricalTrades" : {
         "market":{
-            "type"     : "string",
-            "optional" : true
+            "type"     : "string"
         },
         "from":{
             "type"     : "uint",

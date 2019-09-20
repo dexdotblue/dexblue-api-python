@@ -132,6 +132,35 @@
                 }
             ]
         },
+        "historicalTrade" : {
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "id",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "market",
+                    "type" : "string"
+                },
+                {
+                    "name" : "direction",
+                    "type" : "binbool"
+                },
+                {
+                    "name" : "rate",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "amount",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "timestamp",
+                    "type" : "uint"
+                }
+            ]
+        },
         "userTrade" : {
             "type" : "array",
             "fields" : [
@@ -497,7 +526,7 @@
                     "type" : "array",
                     "elements" : {
                         "type" : "struct",
-                        "struct" : "trade"
+                        "struct" : "historicalTrade"
                     }
                 },
                 "market" : {
@@ -680,6 +709,20 @@
                 }
             ]
         },
+        "chainStats" : {
+            "id"     : "cs",
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "blockHeight",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "gasPrice",
+                    "type" : "uint"
+                }
+            ]
+        },
         "delegateSnapshot" : {
             "id"   : "ds",
             "type" : "array",
@@ -786,8 +829,31 @@
             "type" : "object",
             "keys" : {
                 "trades" : {
-                    "type" : "struct",
-                    "struct" : "userTrade"
+                    "type" : "array",
+                    "elements" : {
+                        "type" : "struct",
+                        "struct" : "userTrade"
+                    }
+                },
+                "market" : {
+                    "type"     : "string",
+                    "optional" : true
+                },
+                "from" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "to" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "before" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "limit" : {
+                    "type"     : "uint",
+                    "optional" : true
                 }
             }
         },
