@@ -1,0 +1,425 @@
+{
+    "authenticate" : {
+        "message":{
+            "type" : "string"
+        },
+        "nonce":{
+            "type" : "uint"
+        },
+        "signature":{
+            "type"   : "hexString",
+            "length" : 132
+        }
+    },
+    "authenticateDelegate" : {
+        "message":{
+            "type" : "string"
+        },
+        "nonce":{
+            "type" : "uint"
+        },
+        "signature":{
+            "type"   : "hexString",
+            "length" : 132
+        }
+    },
+    "authenticateWithSession" : {
+        "address":{
+            "type" : "hexString",
+            "length" : 42
+        },
+        "session":{
+            "type" : "string"
+        }
+
+    },
+    "logoff" : {},
+    "getListed" : {},
+    "getActiveOrderSnapshot" : {},
+    "getHistoricalOrders" : {
+        "market":{
+            "type"     : "string",
+            "optional" : true
+        },
+        "from":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "to":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "before":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "limit": {
+            "type"     : "uint",
+            "optional" : true
+        }
+    },
+    "getHistoricalLedgerEntries" : {
+        "market":{
+            "type"     : "string",
+            "optional" : true
+        },
+        "from":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "to":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "before":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "limit": {
+            "type"     : "uint",
+            "optional" : true
+        }
+    },
+    "getHistoricalTrades" : {
+        "market":{
+            "type"     : "string",
+            "optional" : true
+        },
+        "from":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "to":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "before":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "limit": {
+            "type"     : "uint",
+            "optional" : true
+        }
+    },
+    "getUserTrades" : {
+        "market":{
+            "type"     : "string",
+            "optional" : true
+        },
+        "from":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "to":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "before":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "limit": {
+            "type"     : "uint",
+            "optional" : true
+        }
+    },
+    "subscribe" : {
+        "markets":{
+            "type"      : "array",
+            "elements"  : {
+                "type" : "string"
+            }
+        },
+        "events":{
+            "type"      : "array",
+            "elements"  : {
+                "type" : "string"
+            }
+        }
+    },
+    "unSubscribe" : {
+        "markets":{
+            "type"      : "array",
+            "elements"  : {
+                "type" : "string"
+            }
+        },
+        "events":{
+            "type"      : "array",
+            "elements"  : {
+                "type" : "string"
+            }
+        }
+    },
+    "placeOrder" : {
+        "market":{
+            "type" : "string"
+        },
+        "buyToken":{
+            "type"   : "hexString",
+            "length" : 42
+        },
+        "sellToken":{
+            "type"   : "hexString",
+            "length" : 42
+        },
+        
+        "buyAmount":{
+            "type" : "uintString"
+        },
+        "sellAmount":{
+            "type" : "uintString"
+        },
+
+        "expiry": {
+            "type"     : "uint",
+            "maxValue" : 9999999999
+        },
+        "nonce": {
+            "type"     : "uint",
+            "maxValue" : 9999999999999
+        },
+        "signature":{
+            "type"   : "hexString",
+            "length" : 132
+        },
+        "signatureFormat":{
+            "type" : "string"
+        },
+
+        "cid":{
+            "type"     : "uint",
+            "optional" : true
+        },
+
+        "rebateToken": {
+            "type": "string",
+            "optional": true
+        },
+        
+        "hidden":{
+            "type"     : "bool",
+            "optional" : true
+        },
+
+        "postOnly": {
+            "type": "bool",
+            "optional": true
+        },
+        "immediateOrCancel": {
+            "type": "bool",
+            "optional": true
+        },
+        "fillOrKill": {
+            "type": "bool",
+            "optional": true
+        },        
+
+        "timeInForce": {
+            "type"     : "uint",
+            "optional" : true,
+            "maxValue" : 9999999999
+        },
+
+        "stopRate":{
+            "type"     : "string",
+            "optional" : true
+        },
+
+        "peggedTo":{
+            "type"     : "string",
+            "optional" : true
+        },
+        "peggedRate":{
+            "type"     : "string",
+            "optional" : true
+        },
+        
+        "buyBookAmount":{
+            "type"     : "uintString",
+            "optional" : true
+        },
+        "sellBookAmount":{
+            "type"     : "uintString",
+            "optional" : true
+        }
+    },
+    "cancelOrder" : {
+        "id":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "cid":{
+            "type"     : "uint",
+            "optional" : true
+        }
+    },
+    "cancelOrders" : {
+        "market" : {
+            "type"     : "string",
+            "optional" : true
+        }
+    },
+    "editOrder" : {
+        "id":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "cid":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "hidden":{
+            "type"     : "bool",
+            "optional" : true
+        },
+        "stopRate":{
+            "type"     : "string",
+            "optional" : true
+        },                 
+        "timeInForce": {
+            "type"     : "uint",
+            "optional" : true,
+            "maxValue" : 9999999999
+        },
+        "peggedTo":{
+            "type"     : "string",
+            "optional" : true
+        },   
+        "peggedRate":{
+            "type"     : "string",
+            "optional" : true
+        },
+        "buyBookAmount":{
+            "type"     : "uintString",
+            "optional" : true
+        },
+        "sellBookAmount":{
+            "type"     : "uintString",
+            "optional" : true
+        }
+    },
+    "getBarData" : {
+        "from":{
+            "type" : "uint"
+        },
+        "to":{
+            "type" : "uint"
+        },
+        "market":{
+            "type" : "string"
+        },
+        "precision":{
+            "type" : "string"
+        }
+    },
+    "signWithdrawal" : {
+        "token":{
+            "type"   : "hexString",
+            "length" : 42
+        },
+        "amount":{
+            "type" : "uintString"
+        }
+    },
+    "signDelegationRemoval" : {
+        "address":{
+            "type"   : "hexString",
+            "length" : 42
+        }
+    },
+    "withdrawalTransaction" : {
+        "id":{
+            "type" : "uint"
+        },
+        "txhash":{
+            "type"   : "hexString",
+            "length" : 66
+        }
+    },
+    "announceDeposit" : {
+        "token":{
+            "type"   : "hexString",
+            "length" : 42
+        },
+        "amount":{
+            "type" : "uintString"
+        },
+        "txhash":{
+            "type"   : "hexString",
+            "length" : 66
+        }
+    },
+    "getTokenInfo" : {
+        "id":{
+            "type"     : "string",
+            "optional" : true
+        },
+        "contract":{
+            "type"     : "hexString",
+            "length"   : 42,
+            "optional" : true
+        }
+    },
+    "updateUsername" : {
+        "username":{
+            "type" : "string"
+        },
+        "signature":{
+            "type"   : "hexString",
+            "length" : 132
+        }
+    },
+    "registerTOTPSalt" : {
+        "TOTPSecret":{
+            "type"   : "string",
+            "length" : 16
+        },
+        "salt":{
+            "type"  : "string"
+        }
+    },
+    "getTOTPSalt" : {
+        "TOTP":{
+            "type"     : "uint",
+            "optional" : true
+        },
+        "username":{
+            "type"     : "string",
+            "optional" : true
+        },
+        "address":{
+            "type" : "hexString",
+            "length" : 42,
+            "optional" : true
+        }
+    },
+    "getUsername" : {},
+    "announceDelegate" : {
+        "address":{
+            "type"   : "hexString",
+            "length" : 42
+        },
+        "label":{
+            "type"      : "string",
+            "maxLength" : 30,
+            "optional"  : true
+        },
+        "isTradingLogin":{
+            "type"     : "bool",
+            "optional" : true
+        }
+    },
+    "updateDelegateLabel" : {
+        "address":{
+            "type"   : "hexString",
+            "length" : 42
+        },
+        "label":{
+            "type"      : "string",
+            "maxLength" : 30
+        }
+    },
+    "ping" : {}
+}

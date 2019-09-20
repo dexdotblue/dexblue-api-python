@@ -1,0 +1,822 @@
+{
+    "structs" : {
+        "order" : {
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "id",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "cid",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "hash",
+                    "type" : "hexString"
+                },
+                {
+                    "name" : "market",
+                    "type" : "string"
+                },
+                {
+                    "name" : "active",
+                    "type" : "bool"
+                },
+                {
+                    "name" : "canceled",
+                    "type" : "bool"
+                },
+                {
+                    "name" : "sellToken",
+                    "type" : "string"
+                },
+                {
+                    "name" : "buyToken",
+                    "type" : "string"
+                },
+                {
+                    "name" : "sellTokenAmount",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "buyTokenAmount",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "sellTokenRemaining",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "buyTokenRemaining",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "sellTokenBookAmount",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "buyTokenBookAmount",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "bookRate",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "stopRate",
+                    "type" : "floatString",
+                    "optional" : true
+                },
+                {
+                    "name"     : "peggedCurrency",
+                    "type"     : "string",
+                    "optional" : true
+                },
+                {
+                    "name"     : "peggedRate",
+                    "type"     : "floatString",
+                    "optional" : true
+                },
+                {
+                    "name" : "hidden",
+                    "type" : "bool"
+                },
+                {
+                    "name" : "trades",
+                    "type" : "array",
+                    "elements" : {
+                        "type" : "uint"
+                    }
+                },
+                {
+                    "name" : "info",
+                    "type" : "string"
+                },
+                {
+                    "name" : "nonce",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "timestamp",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "lastActive",
+                    "type" : "uint"
+                }
+            ]
+        },
+        "trade" : {
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "id",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "direction",
+                    "type" : "binbool"
+                },
+                {
+                    "name" : "rate",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "amount",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "timestamp",
+                    "type" : "uint"
+                }
+            ]
+        },
+        "userTrade" : {
+            "type" : "array",
+            "fields" : [
+                {
+                    "name" : "id",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "market",
+                    "type" : "string"
+                },
+                {
+                    "name" : "direction",
+                    "type" : "binbool"
+                },
+                {
+                    "name" : "rate",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "amount",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "tradeFee",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "settlementFee",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "makerRebate",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "rebateToken",
+                    "type" : "string"
+                },
+                {
+                    "name" : "timestamp",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "orderId",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "orderCid",
+                    "type" : "uint"
+                }
+            ]
+        },
+        "ledgerEntry" : {
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "id",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "type",
+                    "type" : "string"
+                },
+                {
+                    "name"     : "changes",
+                    "type"     : "array",
+                    "elements" : {
+                        "type"   : "array",
+                        "fields" : [
+                            {
+                                "name" : "token",
+                                "type" : "string"
+                            },
+                            {
+                                "name" : "amount",
+                                "type" : "intString"
+                            },
+                            {
+                                "name" : "fees",
+                                "type" : "intString"
+                            },
+                            {
+                                "name" : "netAmount",
+                                "type" : "intString"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name"     : "applied",
+                    "type"     : "array",
+                    "elements" : {
+                        "type"   : "array",
+                        "fields" : [
+                            {
+                                "name" : "settled",
+                                "type" : "int"
+                            },
+                            {
+                                "name" : "usable",
+                                "type" : "int"
+                            },
+                            {
+                                "name" : "blocked",
+                                "type" : "int"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name" : "signature",
+                    "type" : "object",
+                    "keys" : {
+                        "v" : {
+                            "type" : "uint",
+                            "optional" : true
+                        },
+                        "r" : {
+                            "type" : "hexString",
+                            "optional" : true
+                        },
+                        "s" : {
+                            "type" : "hexString",
+                            "optional" : true
+                        },
+                        "nonce" : {
+                            "type" : "uint",
+                            "optional" : true
+                        }
+                    }
+                },
+                {
+                    "name" : "transactionHash",
+                    "type" : "hexString",
+                    "optional" : true
+                },
+                {
+                    "name" : "blockNumber",
+                    "type" : "uint",
+                    "optional" : true
+                },
+                {
+                    "name" : "blockHash",
+                    "type" : "hexString",
+                    "optional" : true
+                },
+                {
+                    "name" : "canceled",
+                    "type" : "bool"
+                },
+                {
+                    "name" : "description",
+                    "type" : "string"
+                },
+                {
+                    "name" : "timestamp",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "lastUpdated",
+                    "type" : "uint"
+                }
+            ]
+        },
+        "delegate" : {
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "address",
+                    "type" : "hexString"
+                },
+                {
+                    "name" : "active",
+                    "type" : "bool"
+                },
+                {
+                    "name" : "accepted",
+                    "type" : "bool"
+                },
+                {
+                    "name" : "removalSignature",
+                    "type" : "object",
+                    "keys" : {
+                        "v" : {
+                            "type" : "uint",
+                            "optional" : true
+                        },
+                        "r" : {
+                            "type" : "hexString",
+                            "optional" : true
+                        },
+                        "s" : {
+                            "type" : "hexString",
+                            "optional" : true
+                        }
+                    }
+                },
+                {
+                    "name" : "label",
+                    "type" : "string"
+                },
+                {
+                    "name" : "isTradingLogin",
+                    "type" : "bool"
+                }
+            ]
+        }
+    },
+    "events" : {
+        "config" : {
+            "id"   : "c",
+            "type" : "object",
+            "keys" : {
+                "barDataPrecisions":{
+                    "type":"object",
+                    "elements": {
+                        "type":"uint"
+                    }
+                },
+                "contractAddress":{
+                    "type" : "string"
+                },
+                "conversionCurrencies":{
+                    "type":"object",
+                    "elements":{
+                        "type":"string"
+                    }
+                },
+                "network":{
+                    "type" : "string"
+                }
+            }
+        },
+        "listed" : {
+            "id"   : "l",
+            "type" : "object",
+            "keys" : {
+                "tokens" : {
+                    "type"     : "object",
+                    "elements" : {
+                        "type" : "object",
+                        "keys" : {
+                            "contract" : {
+                                "type" : "hexString"
+                            },
+                            "name" : {
+                                "type" : "string"
+                            },
+                            "decimals" : {
+                                "type" : "uint"
+                            }
+                        }
+                    }
+                },
+                "markets" : {
+                    "type"     : "object",
+                    "elements" : {
+                        "type" : "object",
+                        "keys" : {
+                            "traded" : {
+                                "type" : "string"
+                            },
+                            "quote" : {
+                                "type" : "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "message" : {
+            "id"   : "m",
+            "type" : "string"
+        },
+        "error" : {
+            "id"   : "e",
+            "type" : "string"
+        },
+        "pingPong" : {
+            "id"   : "p",
+            "type" : "string"
+        },
+        "reconnect" : {
+            "id"   : "rc",
+            "type" : "array",
+            "fields" : [
+                {
+                    "name" : "timeout",
+                    "type" : "uint"
+                },
+                {
+                    "name" : "message",
+                    "type" : "string"
+                }
+            ]
+        },
+        "orderBookSnapshot" : {
+            "id"       : "obs",
+            "type"     : "array",
+            "elements" : {
+                "type" : "array",
+                "fields" : [
+                    {
+                        "name" : "direction",
+                        "type" : "binbool"
+                    },
+                    {
+                        "name" : "rate",
+                        "type" : "floatString"
+                    },
+                    {
+                        "name" : "amount",
+                        "type" : "uintString"
+                    },
+                    {
+                        "name" : "orderCount",
+                        "type" : "uint"
+                    }
+                ]
+            }
+        },
+        "orderBookUpdate" : {
+            "id"     : "ob",
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "direction",
+                    "type" : "binbool"
+                },
+                {
+                    "name" : "rate",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "amount",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "orderCount",
+                    "type" : "uint"
+                }
+            ]
+        },
+        "tradeSnapshot" : {
+            "id"       : "ts",
+            "type"     : "array",
+            "elements" : {
+                "type" : "struct",
+                "struct" : "trade"
+            }
+        },
+        "trade" : {
+            "id"     : "t",
+            "type" : "struct",
+            "struct" : "trade"
+        },
+        "historicalTrades" : {
+            "id"   : "ht",
+            "type" : "object",
+            "keys" : {
+                "trades" : {
+                    "type" : "array",
+                    "elements" : {
+                        "type" : "struct",
+                        "struct" : "trade"
+                    }
+                },
+                "market" : {
+                    "type"     : "string",
+                    "optional" : true
+                },
+                "from" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "to" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "before" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "limit" : {
+                    "type"     : "uint",
+                    "optional" : true
+                }
+            }
+        },
+        "ticker" : {
+            "id"     : "ti",
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "rate",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "change24h",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "volumeTraded24h",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "volumeQuote24h",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "high24h",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "low24h",
+                    "type" : "floatString"
+                }
+            ]
+        },
+        "barData" : {
+            "id"   : "bd",
+            "type" : "object",
+            "keys" : {
+                "trades" : {
+                    "type" : "array",
+                    "elements" : {
+                        "type"   : "array",
+                        "fields" : [
+                            {
+                                "name" : "timestamp",
+                                "type" : "float"
+                            },
+                            {
+                                "name" : "open",
+                                "type" : "float"
+                            },
+                            {
+                                "name" : "high",
+                                "type" : "float"
+                            },
+                            {
+                                "name" : "low",
+                                "type" : "float"
+                            },
+                            {
+                                "name" : "close",
+                                "type" : "float"
+                            },
+                            {
+                                "name" : "volume",
+                                "type" : "float"
+                            }
+                        ]
+                    }
+                },
+                "from" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "to" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "precision" : {
+                    "type"     : "string",
+                    "optional" : true
+                },
+                "last" : {
+                    "type"     : "bool",
+                    "optional" : true
+                }
+            }
+        },
+        "rate" : {
+            "id"   : "r",
+            "type" : "float"
+        },
+        "auth" : {
+            "id"   : "auth",
+            "type" : "array",
+            "fields" : [
+                {
+                    "name" : "status",
+                    "type" : "string"
+                },
+                {
+                    "name" : "address",
+                    "type" : "hexString"
+                },
+                {
+                    "name"     : "session",
+                    "type"     : "string",
+                    "optional" : true
+                },
+                {
+                    "name" : "delegate",
+                    "type" : "hexString"
+                }
+            ]
+        },
+        "balanceSnapshot" : {
+            "id"   : "bs",
+            "type" : "array",
+            "elements" : {
+                "type"   : "array",
+                "fields" : [
+                    {
+                        "name" : "token",
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "settled",
+                        "type" : "uintString"
+                    },
+                    {
+                        "name" : "available",
+                        "type" : "uintString"
+                    },
+                    {
+                        "name" : "blocked",
+                        "type" : "uintString"
+                    }
+                ]
+            }
+        },
+        "balanceStatus" : {
+            "id"     : "b",
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "token",
+                    "type" : "string"
+                },
+                {
+                    "name" : "settled",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "available",
+                    "type" : "uintString"
+                },
+                {
+                    "name" : "blocked",
+                    "type" : "uintString"
+                }
+            ]
+        },
+        "delegateSnapshot" : {
+            "id"   : "ds",
+            "type" : "array",
+            "elements" : {
+                "type"   : "struct",
+                "struct" : "delegate"
+            }
+        },
+        "delegateStatus" : {
+            "id"     : "d",
+            "type"   : "struct",
+            "struct" : "delegate"
+        },
+        "pendingLedgerEntrySnapshot" : {
+            "id"       : "les",
+            "type"     : "array",
+            "elements" : {
+                "type"   : "struct",
+                "struct" : "ledgerEntry"
+            }
+        },
+        "historicalLedgerEntries" : {
+            "id"   : "hle",
+            "type" : "object",
+            "keys" : {
+                "ledgerEntries" : {
+                    "type"   : "array",
+                    "elements" : {
+                        "type"   : "struct",
+                        "struct" : "ledgerEntry"
+                    }
+                },
+                "from" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "to" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "before" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "limit" : {
+                    "type"     : "uint",
+                    "optional" : true
+                }
+            }
+        },
+        "ledgerEntryStatus" : {
+            "id"     : "le",
+            "type"   : "struct",
+            "struct" : "ledgerEntry"
+        },
+        "activeOrderSnapshot" : {
+            "id"   : "os",
+            "type" : "array",
+            "elements" : {
+                "type"   : "struct",
+                "struct" : "order"
+            }
+        },
+        "historicalOrders" : {
+            "id"   : "ho",
+            "type" : "object",
+            "keys" : {
+                "orders" : {
+                    "type"     : "array",
+                    "elements" : {
+                        "type"   : "struct",
+                        "struct" : "order"
+                    }
+                },
+                "market" : {
+                    "type"     : "string",
+                    "optional" : true
+                },
+                "from" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "to" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "before" : {
+                    "type"     : "uint",
+                    "optional" : true
+                },
+                "limit" : {
+                    "type"     : "uint",
+                    "optional" : true
+                }
+            }
+        },
+        "orderStatus" : {
+            "id"     : "o",
+            "type"   : "struct",
+            "struct" : "order"
+        },
+        "userTrades" : {
+            "id"   : "uts",
+            "type" : "object",
+            "keys" : {
+                "trades" : {
+                    "type" : "struct",
+                    "struct" : "userTrade"
+                }
+            }
+        },
+        "userTrade" : {
+            "id"   : "ut",
+            "type" : "struct",
+            "struct" : "userTrade"
+        },
+        "feeTier" : {
+            "id"     : "ft",
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "volume30d",
+                    "type" : "float"
+                },
+                {
+                    "name" : "makerFee",
+                    "type" : "float"
+                },
+                {
+                    "name" : "takerFee",
+                    "type" : "float"
+                }
+            ]
+        },
+        "pong" : {
+            "id"     : "p",
+            "type"   : "string"
+        }
+    }
+}
