@@ -1,4 +1,4 @@
-# dex.blue python api wrapper
+# dex.blue python API wrapper
 
 This is the official Python API wrapper for communicating with the dex.blue API.
 
@@ -22,18 +22,6 @@ For the most straightforward integration, which does not require you to directly
 
 If you want to handle deposits and withdrawals from your bot, please check out [this page](https://docs.dex.blue/contract/) of our documentation.
 
-## Basic example
-
-```python
-import dexblue
-
-db = dexblue.WsAPI()
-
-db.methods.getListed()
-
-db.on('listed', print)
-```
-
 ## Initializing a connection
 
 Tha connection can be initialized with different parameters.
@@ -41,9 +29,12 @@ Tha connection can be initialized with different parameters.
 ```python
 import dexblue
 
-db = dexblue.WsAPI(
-    delegate=<DEXBLUE DELEGATE KEY>,
+db = dexblue.WsAPI( # all parameters are optional
+    # authenticate either an account...
     account=<ETHEREUM PRIVATE KEY>,
+    # ...or a delegate
+    delegate=<DEXBLUE DELEGATE KEY>,
+    # optional parameters
     endpoint=<DEXBLUE WEBSOCKET ENDPOINT>, # default: wss://api.dex.blue/ws
     web3Provider=<ETHEREUM WEB3 RPC ENDPOINT>, # default: https://mainnet.infura.io/
     network=<ETHEREUM NETWORK>, # default: mainnet
@@ -51,12 +42,12 @@ db = dexblue.WsAPI(
 )
 
 def callback(packet):
-    # your code here
+    # your logic here
 
 db.on('wsOpen', callback)
 ```
 
-It is possible to use a encrypted key tho authenticate your connection
+It is possible to load a encrypted key to authenticate your connection
 
 ```python
 key = dexblue.utils.readPrivateKeyFromFile(keyfile, password)
@@ -106,7 +97,8 @@ db.methods.subscribe({
     "events"  : ["trades", "book20d5"]
 })
 
-db.on('events', print)
+db.on('trade', print)
+db.on('book', print)
 ```
 
 ### Callback
@@ -145,7 +137,7 @@ def callback(packet):
         "rate"   : 300
     }, print)
 
-    # This function supports either very abstracted input
+    # But also supports all the granular API parameters
     orderIdentifier = int(time.time()) # client-set order identifier
     db.placeOrder({
         "cid"         : orderIdentifier,
