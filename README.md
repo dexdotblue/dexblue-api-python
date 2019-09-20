@@ -1,4 +1,4 @@
-# dex.blue python api Wrapper
+# dex.blue python api wrapper
 
 This is the official Python API wrapper for communicating with the dex.blue API.
 
@@ -6,11 +6,11 @@ For further information head to the [API Documentation](https://docs.dex.blue)
 
 ## Basic Usage
 
-install via pip
+Install via pip
 
 `pip install dexblue-api`
 
-basic example
+Basic example
 
 ```python
 import dexblue
@@ -81,7 +81,7 @@ Events:
   - `wsError` websocket errored
   - `wsClose` websocket conn is closed
 
-### Subscibing to events
+### Subscribing to events
 
 ```python
 db.methods.subscribe({
@@ -92,7 +92,7 @@ db.methods.subscribe({
 db.on('events', print)
 ```
 
-### callback
+### Callback
 
 A callback must have at least one paramater which is the received data. The following arguments are passed through from the callback definition.
 
@@ -119,7 +119,7 @@ The packet parameter is a dict, which has the following structure
 def callback(packet):
     # If you passed an account of delegate to the constructor, you will authenticated automatically
     # All private commands should be sent after we are successfully authenticated
-    # If no expiry is passed, a default expiry of to month will be applied
+    # If no expiry is passed, a default expiry of one month will be applied
 
     # This function supports either very abstracted input
     db.placeOrder({
