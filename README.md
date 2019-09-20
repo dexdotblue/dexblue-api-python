@@ -113,7 +113,7 @@ The packet parameter is a dict, which has the following structure
 }
 ```
 
-### placing an order
+### Placing an order
 
 ```python
 def callback(packet):
