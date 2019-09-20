@@ -98,15 +98,19 @@ class WsAPI:
         else:
             if not "buyToken" in parameters or not "sellToken" in parameters:
                 self.utils.error("Please provide either the market or the buyToken and sellToken parameters")
-            try:
-                buyToken = self.tokensByContract[parameters["buyToken"]] or self.listed[parameters["buyToken"]]
-            except:
-                pass
+
+            if parameters["buyToken"] in self.tokensByContract:
+                buyToken = self.tokensByContract[parameters["buyToken"]]
+            elif parameters["buyToken"] in self.listed["listed"]["tokens"]:
+                buyToken = self.listed["listed"]["tokens"][parameters["buyToken"]]
+            else:
                 self.utils.error("Unknown buy token")
-            try:
-                sellToken = self.tokensByContract[parameters["sellToken"]] or self.listed[parameters["sellToken"]]
-            except:
-                pass
+            
+            if parameters["sellToken"] in self.tokensByContract:
+                sellToken = self.tokensByContract[parameters["sellToken"]]
+            elif parameters["sellToken"] in self.listed["listed"]["tokens"]:
+                sellToken = self.listed["listed"]["tokens"][parameters["sellToken"]]
+            else:
                 self.utils.error("Unknown sell token")
 
             if not buyToken or not sellToken:
