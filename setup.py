@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="dexblue-api",
+    name="dexblue-api-python",
     version="v0.1.0-beta1",
     author="dex.blue",
     author_email="tech@dex.blue",
