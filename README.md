@@ -155,7 +155,7 @@ def callback(packet):
 db.on('auth', callback)
 ```
 
-### Error handeling
+### Error handling
 
 ```python
 def reconnect_cb(packet):
