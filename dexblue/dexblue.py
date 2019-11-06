@@ -11,7 +11,7 @@ from web3 import Web3
 
 
 class WsAPI:
-    def __init__(self, endpoint="wss://api.dex.blue/ws", network="mainnet", web3Provider="https://mainnet.infura.io/", account=None, delegate=None, autoAuth=True):
+    def __init__(self, endpoint="wss://api.dex.blue/ws/v1", network="mainnet", web3Provider="https://mainnet.infura.io/", account=None, delegate=None, autoAuth=True):
         self.utils = Utils()
         self.methods = Methods(self, self.utils)
 
