@@ -639,6 +639,24 @@
             "id"   : "r",
             "type" : "float"
         },
+        "index" : {
+            "id"   : "i",
+            "type" : "array",
+            "fields" : [
+                {
+                    "name" : "rate",
+                    "type" : "float"
+                },
+                {
+                    "name" : "bid",
+                    "type" : "float"
+                },
+                {
+                    "name" : "ask",
+                    "type" : "float"
+                }
+            ]
+        },
         "auth" : {
             "id"   : "auth",
             "type" : "array",
@@ -784,6 +802,29 @@
             "elements" : {
                 "type"   : "struct",
                 "struct" : "order"
+            }
+        },
+        "orderCancellationSignature" : {
+            "id"   : "ocs",
+            "type" : "object",
+            "keys" : {
+                "signature" : {
+                    "type"     : "object",
+                    "keys" : {
+                        "v" : {
+                            "type" : "uint",
+                            "optional" : true
+                        },
+                        "r" : {
+                            "type" : "hexString",
+                            "optional" : true
+                        },
+                        "s" : {
+                            "type" : "hexString",
+                            "optional" : true
+                        }
+                    }
+                }
             }
         },
         "historicalOrders" : {

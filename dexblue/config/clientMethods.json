@@ -343,6 +343,31 @@
             "type" : "uintString"
         }
     },
+    "submitWithdrawal": {
+        "token":{
+            "type" : "hexString",
+            "length" : 42
+        },
+        "amount":{
+            "type" : "uintString"
+        },
+        "nonce":{
+            "type" : "uint"
+        },
+        "signature": {
+            "type": "hexString",
+            "length": 132
+        },
+        "signatureFormat": {
+            "type": "string"
+        }
+    },
+    "signOrderCancellation" : {
+        "hash":{
+            "type" : "hexString",
+            "length" : 66
+        }
+    },
     "signDelegationRemoval" : {
         "address":{
             "type"   : "hexString",
