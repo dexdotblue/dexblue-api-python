@@ -54,6 +54,10 @@
     "getTicker": {
         "market": {
             "type": "string"
+        },
+        "source": {
+            "type": "string",
+            "optional": true
         }
     },
     "getActiveOrderSnapshot" : {},
@@ -321,6 +325,10 @@
         }
     },
     "getBarData" : {
+        "source": {
+            "type": "string",
+            "optional": true
+        },
         "from":{
             "type" : "uint"
         },
@@ -397,7 +405,11 @@
         }
     },
     "getTokenInfo" : {
-        "id":{
+        "token":{
+            "type"     : "string",
+            "optional" : true
+        },
+        "symbol":{
             "type"     : "string",
             "optional" : true
         },

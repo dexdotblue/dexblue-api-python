@@ -581,11 +581,105 @@
                 }
             ]
         },
+        "indexTicker" : {
+            "id"     : "iti",
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "rate",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "change24h",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "volumeTraded24h",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "volumeQuote24h",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "high24h",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "low24h",
+                    "type" : "floatString"
+                }
+            ]
+        },
+        "mixedTicker" : {
+            "id"     : "mti",
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "rate",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "change24h",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "volumeTraded24h",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "volumeQuote24h",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "high24h",
+                    "type" : "floatString"
+                },
+                {
+                    "name" : "low24h",
+                    "type" : "floatString"
+                }
+            ]
+        },
+        "bar" : {
+            "id"   : "bar",
+            "type"   : "array",
+            "fields" : [
+                {
+                    "name" : "timestamp",
+                    "type" : "float"
+                },
+                {
+                    "name" : "open",
+                    "type" : "float"
+                },
+                {
+                    "name" : "high",
+                    "type" : "float"
+                },
+                {
+                    "name" : "low",
+                    "type" : "float"
+                },
+                {
+                    "name" : "close",
+                    "type" : "float"
+                },
+                {
+                    "name" : "tradedVolume",
+                    "type" : "float"
+                },
+                {
+                    "name" : "quoteVolume",
+                    "type" : "float"
+                }
+            ]
+        },
         "barData" : {
             "id"   : "bd",
             "type" : "object",
             "keys" : {
-                "trades" : {
+                "bars" : {
                     "type" : "array",
                     "elements" : {
                         "type"   : "array",
@@ -596,23 +690,33 @@
                             },
                             {
                                 "name" : "open",
-                                "type" : "float"
+                                "type" : "float",
+                                "optional" : true
                             },
                             {
                                 "name" : "high",
-                                "type" : "float"
+                                "type" : "float",
+                                "optional" : true
                             },
                             {
                                 "name" : "low",
-                                "type" : "float"
+                                "type" : "float",
+                                "optional" : true
                             },
                             {
                                 "name" : "close",
-                                "type" : "float"
+                                "type" : "float",
+                                "optional" : true
                             },
                             {
-                                "name" : "volume",
-                                "type" : "float"
+                                "name" : "tradedVolume",
+                                "type" : "float",
+                                "optional" : true
+                            },
+                            {
+                                "name" : "quoteVolume",
+                                "type" : "float",
+                                "optional" : true
                             }
                         ]
                     }
@@ -924,6 +1028,81 @@
         "pong" : {
             "id"     : "p",
             "type"   : "string"
+        },
+        "tokenInfo" : {
+            "id"   : "toi",
+            "type" : "object",
+            "keys" : {
+                "name" : {
+                    "type" : "string"
+                },
+                "symbol" : {
+                    "type" : "string"
+                },
+                "contract" : {
+                    "type" : "string"
+                },
+                "decimals" : {
+                    "type" : "uint"
+                },
+                "minOrderAmount" : {
+                    "type" : "uintString"
+                },
+                "minOrderRemaining" : {
+                    "type" : "uintString"
+                },
+                "supply" : {
+                    "type" : "floatString"
+                },
+                "description" : {
+                    "type" : "string"
+                },
+                "links" : {
+                    "type" : "object",
+                    "keys" : {
+                        "website" : {
+                            "type" : "string",
+                            "optional" : true
+                        },
+                        "whitepaper" : {
+                            "type" : "string",
+                            "optional" : true
+                        },
+                        "github" : {
+                            "type" : "string",
+                            "optional" : true
+                        },
+                        "twitter" : {
+                            "type" : "string",
+                            "optional" : true
+                        },
+                        "medium" : {
+                            "type" : "string",
+                            "optional" : true
+                        },
+                        "reddit" : {
+                            "type" : "string",
+                            "optional" : true
+                        },
+                        "stackexchange" : {
+                            "type" : "string",
+                            "optional" : true
+                        },
+                        "discord" : {
+                            "type" : "string",
+                            "optional" : true
+                        },
+                        "telegram" : {
+                            "type" : "string",
+                            "optional" : true
+                        },
+                        "explorer" : {
+                            "type" : "string",
+                            "optional" : true
+                        }
+                    }
+                }
+            }
         }
     }
 }
